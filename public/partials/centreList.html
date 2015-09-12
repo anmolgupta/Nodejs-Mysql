@@ -1,19 +1,28 @@
+<div>
+    <table border ='1'>
+        <tr>
+            <th class="col-md-2">Center Name</th><th class="col-md-2">Contact No.</th>
+        </tr>
+        <tr ng-repeat = 'element in list'>
+            <td  class="col-md-2">{{element.CenterName}}</td>
+            <td  class="col-md-2">{{element.ContactNo}}</td>
+            <td  class="col-md-2"><button ng-click="getDevices(element.CenterID, $index)">show devices</button> </td>
 
-<div ng-repeat = 'element in list'>
+            <td  ng-show="devices[$index]">
+            <div>
+                <table >
+                    <tr>
+                        <th class="col-md-3">ID</th>
+                        <th class="col-md-3">DeviceID</th>
+                    </tr>
 
-   {{element.CenterName}} |  {{element.ContactNo}}
-    <button ng-click="getDevices(element.CenterID, $index)">show devices</button> <br/>
-    <div ng-show="devices[$index]">
-        <table style="border: 1px" >
-            <tr>
-            <th class="col-md-3">ID</th><th class="col-md-3">DeviceID</th>
-            </tr>
-
-            <tr ng-repeat="device in devices[$index]">
-                <td class="col-md-3">{{device.ID}}</td>
-                <td class="col-md-3">{{device.DeviceID}}</td>
-            </tr>
-        </table>
-    </div>
-
+                    <tr ng-repeat="device in devices[$index]">
+                        <td class="col-md-3">{{device.ID}}</td>
+                        <td class="col-md-3">{{device.DeviceID}}</td>
+                    </tr>
+                </table>
+            </div>
+            </td>
+        </tr>
+    </table>
 </div>
