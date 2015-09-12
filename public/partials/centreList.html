@@ -8,7 +8,7 @@
             <td  class="col-md-2">{{element.ContactNo}}</td>
             <td  class="col-md-2"><button ng-click="getDevices(element.CenterID, $index)">show devices</button> </td>
 
-            <td  ng-show="devices[$index]">
+            <td  ng-show="element.devices">
             <div>
                 <table >
                     <tr>
@@ -16,7 +16,7 @@
                         <th class="col-md-3">DeviceID</th>
                     </tr>
 
-                    <tr ng-repeat="device in devices[$index]">
+                    <tr ng-repeat="device in element.devices">
                         <td class="col-md-3">{{device.ID}}</td>
                         <td class="col-md-3">{{device.DeviceID}}</td>
                     </tr>

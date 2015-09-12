@@ -4,8 +4,6 @@
 
 app.controller('listController',['$scope','$http','$window',function($scope, $http,$window){
 
-    $scope.devices = [];
-
     $http.get('/centre/list').
         then(function(response) {
             console.log('anmol'+JSON.stringify(response));
@@ -25,7 +23,7 @@ app.controller('listController',['$scope','$http','$window',function($scope, $ht
         $http.get('/device/centerId/'+centreId).then(function(response){
 
             console.log('devices'+JSON.stringify(response.data));
-            $scope.devices[indexVal] = response.data;
+            $scope.list[indexVal].devices = response.data;
 
         }),function(error){
 
